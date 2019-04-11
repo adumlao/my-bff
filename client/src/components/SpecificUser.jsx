@@ -9,19 +9,18 @@ import {
 import PostsList from './PostsList'
 
 
-class UserProfile extends React.Component {
+class SpecificUser extends React.Component {
   constructor(props){
     super(props)
 
     this.state = {
-      allUsers : [],
       user: [],
       userPosts: [],
     }
   }
 
   async componentDidMount() {
-     const id = await localStorage.getItem('id');
+     const id = this.props.match.params.id
      const user = await getUser(id);
 
      this.setState({
@@ -31,7 +30,8 @@ class UserProfile extends React.Component {
   }
 
   async fetchUserPosts() {
-    const userPosts = await getUserPosts(this.state.user.id)
+    const id = this.props.match.params.id
+    const userPosts = await getUserPosts(id)
     this.setState({
       userPosts: userPosts
     })
@@ -56,7 +56,7 @@ class UserProfile extends React.Component {
           <div className="user-blurb">{this.state.user.bio}</div>
         </div>
         <div className="user-posts">
-        <PostsList
+        <PostsList{...props}
         posts={this.state.userPosts}
         user={this.state.user.id}
         />
@@ -73,4 +73,4 @@ class UserProfile extends React.Component {
 
 
 
-export default UserProfile;
+export default SpecificUser;

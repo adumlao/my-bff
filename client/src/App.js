@@ -21,7 +21,9 @@ import Banner from './components/Banner';
 import BioForm from './components/BioForm';
 import UserProfile from './components/UserProfile';
 import EditForm from './components/EditForm';
-import RandomUser from './components/RandomUser'
+import RandomUser from './components/RandomUser';
+import SpecificUser from './components/SpecificUser';
+
 
 class App extends Component {
   constructor(props) {
@@ -160,7 +162,6 @@ class App extends Component {
    }
 
   render() {
-    console.log(this.state.thisUser);
     return (
 
       <div className="App">
@@ -292,6 +293,22 @@ class App extends Component {
 
       <EditForm {...props}
       />
+      </>
+      )} />
+
+      <Route exact path='/user/:id' render={(props) => (
+      <>
+      <nav>
+      <div>my-bff</div>
+
+      <div className='nav-links'>
+      <Link className="nav-buttons" to='/feed'>Home</Link>
+      <Link className="nav-buttons" to='/userprofile'>View Profile</Link>
+      <div className="nav-buttons" onClick={this.handleLogout}>Logout</div>
+      </div>
+      </nav>
+
+      <SpecificUser {...props}/>
       </>
       )} />
 

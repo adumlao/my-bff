@@ -9,7 +9,7 @@ const PostsList = (props) =>  {
       className="post-block"
       key={x.id}>
 
-        <div className='post-by'>{x.posted_by}</div>
+        <Link className='post-by' to={`/user/${x.user_id}`}>{x.posted_by}</Link>
 
         <div className="post-date">On: {(x.created_at).split("T")[0]} </div>
 
