@@ -21,6 +21,7 @@ class UsersController < ApplicationController
     if new_user.valid?
       new_user.save!
       user_data = {
+        id: new_user.id,
         name: name,
         email: email
       }
