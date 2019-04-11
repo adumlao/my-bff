@@ -3,6 +3,7 @@ import { Route, Link, Redirect } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import decode from 'jwt-decode';
 import {
+  getAllUsers,
   updateUser,
   getUser,
   registerUser,
@@ -74,7 +75,6 @@ class App extends Component {
       this.setState({
         currentUser: user
       })
-
       }
     }
 
@@ -162,6 +162,8 @@ class App extends Component {
    }
 
   render() {
+    console.log(this.state.user);
+    console.log(this.state.allUsers);
     return (
 
       <div className="App">

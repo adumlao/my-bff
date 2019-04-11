@@ -14,16 +14,15 @@ class UserProfile extends React.Component {
     super(props)
 
     this.state = {
-      allUsers : [],
       user: [],
       userPosts: [],
+      rando:[]
     }
   }
 
   async componentDidMount() {
      const id = await localStorage.getItem('id');
      const user = await getUser(id);
-
      this.setState({
        user: user.user,
      })

@@ -290,3 +290,22 @@ nav{
   flex-direction: column;
   align-items: center;
 }
+
+.rando-top{
+  padding: 1em;
+  border: 1px solid grey;
+}
+
+.rando-Img {
+  border-radius: 50%;
+  width: 10em;
+  height: 10em;
+  border: 3px solid white;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.rando-bio{
+  border: 1px solid grey;
+}
