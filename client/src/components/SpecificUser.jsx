@@ -3,6 +3,8 @@ import {
   getUser,
    } from '../services/user';
 import {
+  deletePost,
+  getPosts,
    getUserPosts,
  } from '../services/post';
 
@@ -14,17 +16,29 @@ class SpecificUser extends React.Component {
     super(props)
 
     this.state = {
+      posts: [],
       user: [],
       userPosts: [],
     }
+    this.deleteThisPost = this.deleteThisPost.bind(this);
+  }
+
+  async deleteThisPost(id){
+    const userId = await localStorage.getItem('id');
+    await deletePost(userId, id);
+    const posts = await getPosts();
+    this.setState({
+      posts
+    });
   }
 
   async componentDidMount() {
      const id = this.props.match.params.id
      const user = await getUser(id);
-
+     const posts = await getPosts();
      this.setState({
        user: user.user,
+       posts
      })
     await this.fetchUserPosts();
   }
@@ -38,6 +52,7 @@ class SpecificUser extends React.Component {
   }
 
   render(props){
+    console.log(this.state.userPosts);
     return(
       <div className='user-page'>
 
@@ -58,7 +73,8 @@ class SpecificUser extends React.Component {
         <div className="user-posts">
         <PostsList{...props}
         posts={this.state.userPosts}
-        user={this.state.user.id}
+        user={this.state.userPosts.user_id}
+        deleteThisPost={this.deleteThisPost}
         />
         </div>
       </div>

@@ -34,7 +34,7 @@ class BioForm extends React.Component {
        const id = await localStorage.getItem('id');
        const updated = await updateUser(id, this.state.bioForm);
        this.props.fetchUser();
-       this.props.history.push('/userprofile')
+       this.props.history.push('/feed')
       }
 
      render(){

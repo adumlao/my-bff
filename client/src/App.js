@@ -24,7 +24,7 @@ import UserProfile from './components/UserProfile';
 import EditForm from './components/EditForm';
 import RandomUser from './components/RandomUser';
 import SpecificUser from './components/SpecificUser';
-
+import HomeBlock from './components/HomeBlock';
 
 class App extends Component {
   constructor(props) {
@@ -150,7 +150,7 @@ class App extends Component {
 
  handleLogout() {
   localStorage.clear();
-  this.props.history.push('/login');
+  this.props.history.push('/home');
 }
 
   async submitBio(e){
@@ -158,7 +158,7 @@ class App extends Component {
     const id = await localStorage.getItem('id');
     const updated = await updateUser(id, this.state.bioForm);
 
-    this.props.history.push(`/userprofile`);
+    this.props.history.push(`/feed`);
    }
 
   render() {
@@ -168,15 +168,6 @@ class App extends Component {
 
       <div className="App">
 
-        <Route exact path='/' render={() => (
-          <nav>
-              <Link to="/register">Register</Link>
-              <Link to="/login">Login</Link>
-          </nav>
-        )}/>
-
-
-
       <Route path="/register" render={(props) => {
           const {
             name,
@@ -184,26 +175,31 @@ class App extends Component {
             password
           } = this.state.registerFormData;
           return (
-            <RegisterForm
-              name={name}
-              email={email}
-              password={password}
-              handleChange={this.handleRegisterFormChange}
-              handleSubmit={this.handleRegister} />
+          <>
+          <RegisterForm
+          name={name}
+          email={email}
+          password={password}
+          handleChange={this.handleRegisterFormChange}
+          handleSubmit={this.handleRegister} />
+          </>
           )
         }} />
 
-      <Route path="/login" render={(props) => {
+      <Route path="/home" render={(props) => {
         const {
         email,
         password
         } = this.state.loginFormData;
         return (
+        <div className="home-page">
+        <HomeBlock />
         <LoginForm
         email={email}
         password={password}
         handleChange={this.handleLoginFormChange}
         handleSubmit={this.handleLogin} />
+        </div>
         )
         }} />
 
@@ -215,7 +211,7 @@ class App extends Component {
       return (
       <>
       <nav>
-      <div>my-bff</div>
+      <div className="logo" style={{ backgroundImage: 'url(/media/header.gif)' }}></div>
       <div className='nav-links'>
       <Link className="nav-buttons" to='/userprofile'>View Profile</Link>
       <div onClick={this.handleLogout} className="nav-buttons">Logout</div>
@@ -237,7 +233,7 @@ class App extends Component {
       return (
         <>
         <nav>
-        <div>my-bff</div>
+        <div className="logo" style={{ backgroundImage: 'url(/media/header.gif)' }}></div>
 
         <div className='nav-links'>
         <Link className="nav-buttons" to='/feed'>Home</Link>
@@ -268,7 +264,7 @@ class App extends Component {
       <Route exact path='/userprofile' render={(props) => (
       <>
       <nav>
-      <div>my-bff</div>
+      <div className="logo" style={{ backgroundImage: 'url(/media/header.gif)' }}></div>
 
       <div className='nav-links'>
       <Link className="nav-buttons" to='/feed'>Home</Link>
@@ -284,7 +280,7 @@ class App extends Component {
       <Route exact path='/post/:id/edit' render={(props) =>(
       <>
       <nav>
-      <div>my-bff</div>
+      <div className="logo" style={{ backgroundImage: 'url(/media/header.gif)' }}></div>
 
       <div className='nav-links'>
       <Link className="nav-buttons" to='/feed'>Home</Link>
@@ -301,7 +297,7 @@ class App extends Component {
       <Route exact path='/user/:id' render={(props) => (
       <>
       <nav>
-      <div>my-bff</div>
+      <div className="logo" style={{ backgroundImage: 'url(/media/header.gif)' }}></div>
 
       <div className='nav-links'>
       <Link className="nav-buttons" to='/feed'>Home</Link>

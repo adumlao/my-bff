@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route, Link, Redirect } from 'react-router-dom';
 
 const LoginForm = (props) => {
   const {
@@ -9,23 +10,26 @@ const LoginForm = (props) => {
   } = props;
   return (
     <div>
-      <h2>Login</h2>
-      <form>
-        <label htmlFor="email">Email </label>
+      <form className="home-login">
+        <div className='home-header'>Login</div>
         <input
+          className="home-input"
           type="text"
           onChange={handleChange}
           name="email"
           id="email"
+          placeholder="Username"
           value={email} />
-        <label htmlFor="password">Password</label>
         <input
+          className="home-input"
           type="password"
           onChange={handleChange}
           name="password"
           id="password"
+          placeholder="Password"
           value={password} />
-        <button type="submit" onClick={handleSubmit}>Sign In!</button>
+        <button className="home-button" type="submit" onClick={handleSubmit}>Submit</button>
+        <Link className="home-link" to="/register">New User</Link>
       </form>
     </div>
   )

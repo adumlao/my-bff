@@ -37,11 +37,11 @@ this.showRandom();
 
     console.log(this.state.user);
     return(
-      <div>
-        <div>Cuteness Alert!</div>
+      <div className="bio">
+        <div className="cutie" style={{ backgroundImage: 'url(/media/cutie.gif)' }}></div>
         <div className='rando-top'>
-        <div>Meet {this.state.user.name}</div>
-        <div>From {this.state.user.location}:</div>
+        <div className='rando-name'>Meet {this.state.user.name}</div>
+        <div className="rando-name">From {this.state.user.location}:</div>
         <div className="rando-Img" style={{backgroundImage: `url(${this.state.user.profile_pic})`}}></div>
         </div>
         <div className="rando-bio">{this.state.user.bio}</div>

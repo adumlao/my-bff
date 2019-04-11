@@ -3,6 +3,8 @@ import {
   getUser,
    } from '../services/user';
 import {
+  deletePost,
+  getPosts,
    getUserPosts,
  } from '../services/post';
 
@@ -14,17 +16,31 @@ class UserProfile extends React.Component {
     super(props)
 
     this.state = {
+      posts: [],
       user: [],
       userPosts: [],
       rando:[]
     }
+    this.deleteThisPost = this.deleteThisPost.bind(this);
+  }
+
+  async deleteThisPost(id){
+    const userId = await localStorage.getItem('id');
+    await deletePost(userId, id);
+    const posts = await getPosts();
+    this.setState({
+      posts
+    });
+    await this.fetchUserPosts();
   }
 
   async componentDidMount() {
      const id = await localStorage.getItem('id');
      const user = await getUser(id);
+     const posts = await getPosts();
      this.setState({
        user: user.user,
+       posts
      })
     await this.fetchUserPosts();
   }
@@ -58,6 +74,7 @@ class UserProfile extends React.Component {
         <PostsList
         posts={this.state.userPosts}
         user={this.state.user.id}
+        deleteThisPost={this.deleteThisPost}
         />
         </div>
       </div>

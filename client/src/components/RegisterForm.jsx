@@ -9,30 +9,33 @@ export default (props) => {
     handleSubmit,
   } = props;
   return (
-    <div>
-      <h2>RegisterForm</h2>
-      <form>
-        <label htmlFor="email">Email </label>
+    <div className="register-main">
+      <div className="hey-logo" style={{ backgroundImage: 'url(/media/hey.gif)' }}></div>
+      <form className="register-form">
         <input
+          className="reg-input"
           type="text"
           onChange={handleChange}
           name="email"
           id="email"
+          placeholder="Username"
           value={email} />
-        <label htmlFor="password">Password</label>
         <input
+          className="reg-input"
           type="password"
           onChange={handleChange}
           name="password"
           id="password"
+          placeholder="Password"
           value={password} />
-        <label htmlFor="name">Full Name</label>
         <input
+          className="reg-input"
           type="text"
           onChange={handleChange}
           name="name"
+          placeholder="First Name, Last Name"
           value={name} />
-        <button type="submit" onClick={handleSubmit}>Register!</button>
+        <button className="home-button" type="submit" onClick={handleSubmit}>Register</button>
       </form>
     </div>
   )
