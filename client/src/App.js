@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Route, Link, Redirect } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
-import decode from 'jwt-decode';
+
 import {
-  getAllUsers,
+
   updateUser,
   getUser,
   registerUser,
@@ -11,12 +11,12 @@ import {
   loginUser } from './services/user';
 import {
     getPosts,
-    createPost } from './services/post';
+     } from './services/post';
 import './App.css';
 import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
 import PostForm from './components/PostForm';
-import PostsList from './components/PostsList';
+
 import ProfilePic from './components/ProfilePic';
 import Banner from './components/Banner';
 import BioForm from './components/BioForm';
@@ -156,14 +156,12 @@ class App extends Component {
   async submitBio(e){
     e.preventDefault();
     const id = await localStorage.getItem('id');
-    const updated = await updateUser(id, this.state.bioForm);
+    await updateUser(id, this.state.bioForm);
 
     this.props.history.push(`/feed`);
    }
 
   render() {
-    console.log(this.state.user);
-    console.log(this.state.allUsers);
     return (
 
       <div className="App">
@@ -205,9 +203,6 @@ class App extends Component {
 
 
       <Route exact path="/feed" render={(props) => {
-      const {
-        posts
-      } = this.state;
       return (
       <>
       <nav>

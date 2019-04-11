@@ -68,7 +68,11 @@ class UserProfile extends React.Component {
       <div className="body">
         <div className="bio">
           <div className="location">Lives in: {this.state.user.location}</div>
-          <div className="user-blurb">{this.state.user.bio}</div>
+          <div className="user-blurb">
+          <p>
+          {this.state.user.bio}
+          </p>
+          </div>
         </div>
         <div className="user-posts">
         <PostsList

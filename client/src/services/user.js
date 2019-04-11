@@ -13,7 +13,6 @@ export const registerUser = async (user) => {
   const { data } = resp;
 
   updateToken(data.token);
-  console.log(data);
   return data;
 };
 
@@ -30,7 +29,6 @@ export const verifyToken = async () => {
         }
       });
       updateToken(token);
-      console.log(resp.data);
       return resp.data;
     } catch (e) {
       console.log(e);
@@ -47,19 +45,16 @@ export const loginUser = async ({ email, password }) => {
   const data = resp.data;
 
   updateToken(data.token);
-  console.log(data);
   return data;
 }
 
 export const getAllUsers = async () => {
   const resp = await api.get(`/users/`);
-  console.log(resp.data);
   return resp.data;
 };
 
 export const getUser = async (id) => {
   const resp = await api.get(`/users/${id}`);
-  console.log(resp.data);
   return resp.data;
 };
 

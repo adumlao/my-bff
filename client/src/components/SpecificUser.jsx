@@ -52,7 +52,6 @@ class SpecificUser extends React.Component {
   }
 
   render(props){
-    console.log(this.state.userPosts);
     return(
       <div className='user-page'>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link, Redirect } from 'react-router-dom';
+import {  Link } from 'react-router-dom';
 
 const LoginForm = (props) => {
   const {
@@ -9,7 +9,7 @@ const LoginForm = (props) => {
     handleSubmit,
   } = props;
   return (
-    <div>
+    <div className="home-bottom">
       <form className="home-login">
         <div className='home-header'>Login</div>
         <input

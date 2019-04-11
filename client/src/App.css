@@ -55,13 +55,13 @@ header{
 }
 
 .body{
-  margin: 2em 0em;
+  margin: 2em 8em;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .bio{
-  width: 20%;
+  width: 16em;
   display: flex;
   flex-direction: column;
 }
@@ -70,22 +70,25 @@ header{
   background-color: white;
   font-size: 1em;
   border: 1px solid grey;
-  padding: 5%;
+  padding: 1em;
 }
 
 .user-blurb{
   background-color: white;
   border: 1px solid grey;
-  padding: 5%;
+  padding: 1em;
   font-size: 1em;
 }
 
 .user-posts{
-  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   margin-left: 3em;
 }
 
 .feed{
+  width: 50em;
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -151,7 +154,8 @@ nav{
 }
 
 .update-form{
-  margin: 2em 0em 1em 0em;
+  width: 36em;
+  margin: 2.5em 0em 1em 0em;
   height: 10em;
   display:flex;
   border: 1px solid grey;
@@ -168,7 +172,7 @@ nav{
   align-items: center;
   flex-direction: column;
   display:flex;
-  width: 50%;
+  width: 12em;
   background-color: white;
   background-size: cover;
   background-repeat: no-repeat;
@@ -191,15 +195,18 @@ nav{
 }
 
 .update-blog{
+  height: 8em;
+  width: 25.6em;
   font-size: 1em;
 }
 
 .blog-button{
+  border: 1px solid grey;
   height: 2em;
   font-size: 0.9em;
 }
 
-.blog-button:hover, .edit-buttons:hover, .home-button:hover{
+.reg-button:hover, .blog-button:hover, .edit-buttons:hover, .home-button:hover{
   background-color: #4261e6c4
 }
 
@@ -231,6 +238,7 @@ nav{
 }
 
 .bio-form{
+  width: 25em;
   display: flex;
   flex-direction: column;
 }
@@ -273,6 +281,7 @@ nav{
 }
 
 .edit-textbio{
+  height: 5.5em;
   font-size: 1.2em;
   margin: 1em 0em;
 }
@@ -295,6 +304,9 @@ nav{
 .rando-top{
   padding: 1em;
   border: 1px solid grey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .rando-Img {
@@ -381,8 +393,19 @@ nav{
   font-size: 1.7em;
 }
 
+.reg-button{
+  border: 1px solid grey;
+  background-color: white;
+  width: 10em;
+  margin: 0.7em 0em;
+  height: 2em;
+  font-size: 0.9em;
+}
+
 .home-button{
-  width: 50%;
+  border: 1px solid grey;
+  background-color: lightgrey;
+  width: 10em;
   margin: 0.7em 0em;
   height: 2em;
   font-size: 0.9em;
@@ -415,7 +438,6 @@ nav{
 }
 
 .hey-logo{
-  margin-top: -6em;
   width: 37em;
   height: 7em;
   background-size: 90%;
@@ -423,8 +445,219 @@ nav{
   background-position: center;
 }
 
-.reg-input{
+.reg-input {
+  height: 3em;
   width: 80%;
   margin: 0.6em 0em;
   font-size: 1em;
+}
+
+@media only screen and (max-width: 1030px) {
+.bio{
+  width: 13em;
+}
+
+.feed, .update-form{
+  width: 25em;
+}
+
+.body{
+  display: flex;
+  margin: 2em 1em;
+  justify-content: center;
+}
+
+.profile-banner {
+  width: 35em;
+}
+
+.update-blog {
+  width: 16.6em;
+  }
+
+.bio-form{
+  width: 60%;
+}
+
+.home-logo {
+    margin-top: -2em;
+    width: 25em;
+    height: 6em;
+}
+
+.home-tag {
+    font-size: 2.5em;
+}
+
+.home-button, .home-input {
+  border: 1px solid lightgrey;
+}
+/* .home-page{
+  display: flex;
+  flex-direction: column;
+}
+
+.home-greeting {
+    width: 100vw;
+    height: 50vh;
+  }
+
+  .home-login {
+    background-color: #3d23e6;
+    width: 100vw;
+    height: 50vh;
+}
+
+.home-logo {
+    margin-top: 2em;
+    width: 17em;
+    height: 4em;
+    background-size: 100%;
+  }
+
+  .home-tag {
+    margin: 0em;
+    font-size: 2em;
+} */
+
+}
+
+@media only screen and (max-width: 850px) {
+  .hey-logo {
+      width: 20em;
+      height: 4em;
+    }
+
+    .register-form {
+      width: 19em;
+    }
+
+    .reg-input {
+    height: 1em;
+  }
+
+}
+
+@media only screen and (max-width: 570px) {
+
+  .home-header {
+    margin-top: -2em;
+    color: grey;
+    font-size: 1.5em;
+}
+
+  .home-page{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .home-greeting {
+      width: 100vw;
+      height: 50vh;
+    }
+
+    .home-bottom{
+      background-color: #3d23e6;
+    }
+
+    .home-login {
+      width: 100vw;
+      height: 50vh;
+      background-color: white;
+  }
+
+  .home-logo {
+      margin-top: 2em;
+      width: 17em;
+      height: 4em;
+      background-size: 100%;
+    }
+
+    .home-tag {
+      margin: 0em;
+      font-size: 2em;
+  }
+
+
+  .body{
+    display: flex;
+    flex-direction: column;
+    margin: 2em 0em;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .bio{
+    width: 13em;
+    margin-bottom: 1em;
+  }
+
+  .username {
+    font-size: 1em;
+  }
+
+  .post-image {
+    width: 15em;
+    height: 15em;
+  }
+
+  .banner, .profile-banner {
+    width: 20em;
+    height: 10em;
+}
+
+.user-posts {
+ margin: 1em 0em;
+}
+
+.feed{
+  width: 20em;
+}
+
+.edit-image, .profileImg {
+  width: 6em;
+  height: 6em;
+}
+
+.user {
+    margin-top: -3em;
+  }
+
+  .logo {
+      width: 4em;
+      height: 2em;
+    }
+
+    nav {
+      padding: 1em 1em;
+    }
+  .nav-buttons {
+    font-size: 0.7em;
+    margin: 1em 1em;
+  }
+
+   .location, .user-blurb, p {
+    word-break: break-all;
+    font-size: 0.7em;
+    }
+
+    .update-form {
+    width: 20em;
+}
+
+.update-blog {
+    width: 13em;
+}
+
+  .bioform{
+    width: 12em;
+  }
+
+.edit-textbio,  .edit-location {
+    font-size: 0.7em;
+}
+
+.drop-text {
+    height: 5em;
+  }
 }

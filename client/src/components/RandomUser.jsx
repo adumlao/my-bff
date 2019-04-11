@@ -34,8 +34,6 @@ this.showRandom();
   }
 
   render(props){
-
-    console.log(this.state.user);
     return(
       <div className="bio">
         <div className="cutie" style={{ backgroundImage: 'url(/media/cutie.gif)' }}></div>

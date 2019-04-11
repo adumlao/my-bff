@@ -35,7 +35,7 @@ export default (props) => {
           name="name"
           placeholder="First Name, Last Name"
           value={name} />
-        <button className="home-button" type="submit" onClick={handleSubmit}>Register</button>
+        <button className="reg-button" type="submit" onClick={handleSubmit}>Register</button>
       </form>
     </div>
   )

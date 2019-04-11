@@ -93,7 +93,6 @@ class PostForm extends React.Component {
 
   render(props){
     const {
-      body,
       description,
     } = this.state
   return (
@@ -124,8 +123,6 @@ class PostForm extends React.Component {
     <div className="update-text">
     <textarea
     className="update-blog"
-    rows = "7"
-    cols = "45"
     name="description"
     id="description"
     placeholder="Meow, Woof, Oink, Neigh, Chirp Away!"

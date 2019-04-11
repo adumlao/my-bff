@@ -96,7 +96,6 @@ class EditForm extends React.Component {
 
       render(props){
         const {
-          body,
           description,
         } = this.state
 
@@ -130,8 +129,6 @@ class EditForm extends React.Component {
           <div className="update-text">
           <textarea
           className="update-blog"
-          rows = "7"
-          cols = "50"
           name="description"
           id="description"
           placeholder={this.state.specificPost.description}
