@@ -67,6 +67,7 @@ header{
 }
 
 .location{
+  width: 10em;
   background-color: white;
   font-size: 1em;
   border: 1px solid grey;
@@ -74,6 +75,7 @@ header{
 }
 
 .user-blurb{
+  width: 10em;
   background-color: white;
   border: 1px solid grey;
   padding: 1em;
@@ -206,7 +208,7 @@ nav{
   font-size: 0.9em;
 }
 
-.reg-button:hover, .blog-button:hover, .edit-buttons:hover, .home-button:hover{
+.rando-name:hover, .reg-button:hover, .blog-button:hover, .edit-buttons:hover, .home-button:hover{
   background-color: #4261e6c4
 }
 
@@ -320,7 +322,17 @@ nav{
 }
 
 .rando-name{
-  font-size: 1.3em;
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+  color: black;
+  padding: 0.2em;
+  border: 1px solid grey;
+  text-decoration: none;
+  background-color: lightgrey;
+}
+
+.rando-location{
+  font-size: 1em;
 }
 
 .rando-bio{
@@ -615,8 +627,8 @@ nav{
 }
 
 .edit-image, .profileImg {
-  width: 6em;
-  height: 6em;
+  width: 7em;
+  height: 7em;
 }
 
 .user {
@@ -636,9 +648,9 @@ nav{
     margin: 1em 1em;
   }
 
-   .location, .user-blurb, p {
+   .location, .user, p {
     word-break: break-all;
-    font-size: 0.7em;
+    font-size: 1em;
     }
 
     .update-form {

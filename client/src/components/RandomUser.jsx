@@ -3,6 +3,9 @@ import {
   getAllUsers,
   getUser,
    } from '../services/user';
+import {  Link } from 'react-router-dom';
+
+
 
 class RandomUser extends React.Component {
   constructor(props){
@@ -34,12 +37,13 @@ this.showRandom();
   }
 
   render(props){
+    console.log(this.state.user);
     return(
       <div className="bio">
         <div className="cutie" style={{ backgroundImage: 'url(/media/cutie.gif)' }}></div>
         <div className='rando-top'>
-        <div className='rando-name'>Meet {this.state.user.name}</div>
-        <div className="rando-name">From {this.state.user.location}:</div>
+        <Link className="rando-name" to={`/user/${this.state.user.id}`}>Meet {this.state.user.name}</Link>
+        <div className="rando-location">From {this.state.user.location}:</div>
         <div className="rando-Img" style={{backgroundImage: `url(${this.state.user.profile_pic})`}}></div>
         </div>
         <div className="rando-bio">{this.state.user.bio}</div>
