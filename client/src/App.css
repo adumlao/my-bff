@@ -609,8 +609,9 @@ nav{
   }
 
   .username {
+    width: 9em;
     font-size: 1em;
-  }
+}
 
   .post-image {
     width: 15em;
@@ -653,7 +654,6 @@ nav{
   }
 
    .location, .user, p {
-    word-break: break-all;
     font-size: 1em;
     }
 
