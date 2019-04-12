@@ -548,6 +548,10 @@ nav{
     height: 1em;
   }
 
+  .banner{
+    width: 35em;
+  }
+
 }
 
 @media only screen and (max-width: 570px) {
