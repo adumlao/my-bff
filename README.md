@@ -1,84 +1,53 @@
-# ![Logo]('../client/public/media/header.gif')
+# ![Logo]('https://i.imgur.com/0pmZq50.gifv')
 
 ## Project Description
 
-**this.state** is a site that gives the public access to real-time bills and legislation that congress just passed, giving additional insight on how each party voted.
-
-The site will have a directory of every senator and house member, and offer statistics on each of their voting records (including how many votes they've missed, their percentage of voting against party).
+**my-bff** is a social site for pets.  Customize your pet's profile, share photos and blog posts with other users and be able to like and comment on their photos as well!
 
 ## User Stories
 
-The user will be able to search for a specific bill in the bills archive.  They will also be able to search for a specific politician by state or by id.  When the user clicks on a button containing the politician id, that person's contact information and stats will be displayed.
+A user will be able to register/login to their account so they can see posts from fellow users.
+
+A user will be able to enter information, edit their bio information so they can have a customizable profile that is unique.
+
+A user will be able to add/ edit posts so they can share their thoughts/photos with other users on the main page feed.
+
+A user will be able to like/unlike and comment/edit that comment on other user's posts.
+
+A user will be able to see other user's profile pages so it will show only that user's posts.
 
 ## Wireframes
 
-### /Home (will render recent bills passed):
-![/Home](https://i.imgur.com/mPzyfzV.jpg "Home")
+- Main page
+![/Home](https://i.imgur.com/GEaBqEF.jpg "main feed")
 
 
 
-### /Bills (bills main page will render upcoming bills):
-![/Bills](https://i.imgur.com/SYrjX85.jpg "Bills Main")
-
-
-
-### /Bills/SearchResults (will display search results):
-![/Bills/SearchResults](https://i.imgur.com/pwWHrT7.jpg "Bills Search Results")
-
-
-
-### /Congress (congress main page will render recent press releases):
-![/Congress](https://i.imgur.com/VAiEOC6.jpg "Congress Main")
-
-
-
-### /Congress/Senate or /Congress/House (renders 2018 scorecard with a filter by state form):
-![/Congress/Senate or /Congress/House](https://i.imgur.com/I2II6xF.jpg "Senate/House Scorecard")
-
-
-
-### /Bills (shows expenses):
-![/Congress/Senate/Expenses/:name or /Congress/House/Expenses/:name](https://i.imgur.com/brrVT9A.jpg "Expenses")
-
-
-
-### /Congress/Senate/State or /Congress/House/State (shows politicans per state with a show more/less contact list button):
-![/Bills](https://i.imgur.com/rxA4fTC.jpg "StateList")
-
-
+- User profile
+![/Bills](https://i.imgur.com/EhJvf4h.jpg "user profile")
 
 ## MVP/PostMVP
 
 ### MVP
 
-- Display CurrentBills  component in the homepage
-- NavMain bar with that routes to /Home, /BillsArchive, and /CongressHome
-- /BillsArchive route will contain a SearchBillsForm component, user types keyword to search.
-- BillResults component will be routed after user hits the search button
-- /senate and /house routes will have a similar hierarchy:
-  * a CongressStat component that renders the stats of the previous year, and an an OnClick function on the name of the politician that will lead to his ContactList component
-  * a FilterByStateForm component, a PoliticiansList component that shows all the politicians of each state
-- Header and Footer Components
-- PressRelease component displays most recent press releases
+- Backend / routes
+- Login / Register
+- Add / edit user profile with profile photo, banner, name, location and bio.
+- Add / edit / delete user posts
+- Show all posts from the community in main feed
+- Show only specific users's posts when we click on their profile
+- Random user spotlight component
 
 ### PostMVP
 
-- a filter by party function
-- a filter by next re-election function
-- a search for a specific bill function (needs a bill ID)
-- a specific roll-call vote function (needs bill ID)
-- a dropdown box where the user selects a specific state
-- an OnClick function on the name of the politician that will lead to his ContactList
-
-## React Component Hierarchy
-
-![Component Hierarchy](https://i.imgur.com/SeIGH3C.jpg "Hierarchy")
+- Comment on a post
+- Edit/delete your own comments
+- Like/unlike a post
 
 
+## Workflow Timeline
 
-## Functional Components
-
-| Component | Description |
+| Day | Task |
 | --- | :---: |  
 | Header | This will render the header |
 | Footer | This will render the header|
@@ -87,70 +56,67 @@ The user will be able to search for a specific bill in the bills archive.  They 
 | SearchBillsForm | Renders a form for the user to type in a keyword |
 | BillResults | Renders a list of bills that have the keyword searched |
 | PressReleases | Renders a list of the most current press releases |
-| CongressStat | Renders the stats of the previous year |
-| ContactList | Renders contact info (phone, site, socials) |
-| FilterByStateForm | Renders a dropdown box for the user to choose a state |
-| PoliticiansList | Renders a list of politicians by state |
-
-| Component | Priority | Estimated Time | Time Invetsted | Actual Time |
-| --- | :---: |  :---: | :---: | :---: |
-| Working with API | H | 2hrs| 2hrs | 2hrs |
-| Header/Footer component | H | 1hr | .5hrs | .5hrs |
-| NavMain | H | 1hrs| .5hrs | .5hrs |
-| CurrentBills | H | 1hrs| 1hr | 1hr |
-| SearchBillsForm | H | 1hrs| 1hrs | 1hrs |
-| BillResults | H | 1hrs| 1hrs | 1hrs |
-| PressReleases | H | 1hrs| .5hrs | .5hrs |
-| CongressStat | H | 2.5hrs| 2.5hrs | 2.5hrs |
-| ContactList | H | 1hrs| 1hrs | 2hrs |
-| FilterByStateForm | H | 2hrs| 2hrs | 2hrs |
-| PoliticiansList | H | 2hrs| 3hrs | 5hrs |
-| Styling | H | 6hrs| 10hrs | 12hrs |
-| Total | H | 21.5hrs| 24.5hrs | 30hrs |
-
 
 ## Code Snippet
 
-- The code below will render a red box if the politician is a republican, or a blue box if they are democrat.
+- The function below is the profile spotlight randomizer.  It goes through the array of users and picks a random user to be showcased on the spotlight component
 
 ```
-<div className="partybox"
-style={{ backgroundColor: x.party==="R" ? "#ee252c" : "#123cf4" }} />
+async showRandom(){
+  const num = this.state.allUsers.length
+  const randomNum = Math.random(num) * num
+  const index = Math.floor(randomNum)
+  const id = this.state.allUsers[index].id
+  const user = await getUser(id)
+  this.setState({
+    user: user.user
+  })
+}
 ```
 
-- The code below renders a prop if that data is available, or returns nothing if the API does not provide it.  It is done for a phone number, twitter account, facebook account, website, and contact page.  The user can also click on the link and it will redirect them to that link.
+- The code below is an example of conditional rendering.  It checks if the logged in user is the owner of the post- if they own the post, an edit and delete button will appear.
 
 ```
-<div className="contact">
-  {x.roles[0].phone === null ? null :
-    (<div>phone: <span>{x.roles[0].phone}</span></div>)}
-  {x.twitter_account === null ? null :
-    (<div>twitter: <span><a className="links" href={"https://twitter.com/"+x.twitter_account} target="_blank" rel="noopener noreferrer">{x.twitter_account}</a></span></div>)}
-  {x.facebook_account === null ? null :
-    (<div>facebook: <span><a className="links" href={"https://facebook.com/"+x.facebook_account} target="_blank" rel="noopener noreferrer">{x.facebook_account}</a></span></div>)}
-  {x.url === null ? null :
-    (<div>website: <span><a className="links" href={x.url} target="_blank" rel="noopener noreferrer">{x.url}</a></span></div>)}
-  {x.roles[0].contact_form === null ? null :
-    (<div>contact: <span><a className="links" href={x.roles[0].contact_form} target="_blank" rel="noopener noreferrer">{x.roles[0].contact_form}</a></span></div>)}
+{props.user === x.user_id ?
+<div className="edits">
+<Link className="edit-buttons" to={`/post/${x.id}/edit`}>Edit</Link>
+<div className="edit-buttons" onClick={() => props.deleteThisPost(x.id)}>Delete</div>
 </div>
+: null
+}
 ```
 
 ## Issues and Resolutions
 
-**ERROR**: all the forms are linked together.  So if you are in the archives component and search for a keyword, the forms in the senate and house of reps component will also search for that keyword and error out.                               
-**RESOLUTION**: creating different handle submits for each form.
+**ERROR**: Backend server cannot find user id from post id.                                               
+**RESOLUTION**: make sure a relation is set between post and user.
 
-**ERROR**: button click on representative id triggers an api call but does not recognize the value of the ID.                     
-**RESOLUTION**: pass the value of the button on click as the parameter of the api call.
-
+- on the migration:
 ```   
-      async submitSpecificSenator(ev){
-      ev.preventDefault();
-      const specificSenator = await fetchSpecificMember(ev.target.value)
+class CreatePosts < ActiveRecord::Migration[5.2]
+  def change
+    create_table :posts do |t|
+      t.string :body
+      t.string :description
+      t.string :posted_by
+      t.references :user, foreign_key: true #ensure this foreign key is set up
 
-      this.setState({
-      specificSenator: specificSenator
-      })
-    }
+      t.timestamps
+    end
+  end
+end
 
+  ```
+
+  - this is what the schema would look like:
+  ```
+  create_table "posts", force: :cascade do |t|
+    t.string "body"
+    t.string "description"
+    t.string "posted_by"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end # this sets the relation
   ```
