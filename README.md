@@ -1,4 +1,4 @@
-# ![Logo]('../public/media/header.gif')
+# ![Logo]('../client/public/media/header.gif')
 
 ## Project Description
 
