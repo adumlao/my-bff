@@ -1,4 +1,4 @@
-#![/Logo](https://i.imgur.com/cSEj0l3.png "logo")
+![/Logo](https://i.imgur.com/cSEj0l3.png "logo")
 
 ## Project Description
 
