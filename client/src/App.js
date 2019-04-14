@@ -150,7 +150,7 @@ class App extends Component {
 
  handleLogout() {
   localStorage.clear();
-  this.props.history.push('/home');
+  this.props.history.push('/');
 }
 
   async submitBio(e){
@@ -166,7 +166,7 @@ class App extends Component {
 
       <div className="App">
 
-      <Route path="/register" render={(props) => {
+      <Route exact path="/register" render={(props) => {
           const {
             name,
             email,
@@ -184,7 +184,7 @@ class App extends Component {
           )
         }} />
 
-      <Route path="/home" render={(props) => {
+      <Route exact path="/" render={(props) => {
         const {
         email,
         password
