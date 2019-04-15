@@ -7,8 +7,6 @@ import {
     deletePost,
     getPosts,
     createPost } from '../services/post';
-import {
-    getComments } from '../services/comments';
 import PostsList from './PostsList'
 
 class PostForm extends React.Component {
