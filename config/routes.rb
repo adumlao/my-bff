@@ -8,10 +8,8 @@ Rails.application.routes.draw do
     resources :posts
   end
 
-  resources :posts do
-    resources :comments
-  end
-
   get "/posts", to: 'posts#all'
+  get "/comments", to: 'comments#all'
+
 
 end
