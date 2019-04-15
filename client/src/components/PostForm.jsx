@@ -7,6 +7,7 @@ import {
     deletePost,
     getPosts,
     createPost } from '../services/post';
+
 import PostsList from './PostsList'
 
 class PostForm extends React.Component {
@@ -41,7 +42,7 @@ class PostForm extends React.Component {
    async componentDidMount(){
      const posts = await getPosts();
      this.setState({
-       posts
+       posts,
      })
    }
 
