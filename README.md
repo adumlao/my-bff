@@ -49,13 +49,11 @@ A user will be able to see other user's profile pages so it will show only that 
 
 | Day | Task |
 | --- | :---: |  
-| Header | This will render the header |
-| Footer | This will render the header|
-| NavMain| This will render the nav bar in the header with links to /home /billsarchive and /congresshome|
-| CurrentBills | A list of current bills passed and the votes outcome will render at the homepage |
-| SearchBillsForm | Renders a form for the user to type in a keyword |
-| BillResults | Renders a list of bills that have the keyword searched |
-| PressReleases | Renders a list of the most current press releases |
+| Monday | backend, routes, login, register, auth |
+| Tuesday | edit user profile, dropbox, show all posts |
+| Wednesday| add/edit/delete posts, styling |
+| Thursday | styling, responsiveness |
+| Friday | MVP button-up |
 
 ## Code Snippet
 
