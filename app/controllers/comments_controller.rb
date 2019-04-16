@@ -5,12 +5,16 @@ class CommentsController < ApplicationController
     render json: { comments: Comment.order("created_at").all }
   end
 
-  def index
-    @user = User.find(params[:user_id])
+  def create
     @post = Post.find(params[:post_id])
-    @comments = Comment.where(user_id: @user.id,  post_id: @post.id)
-    comments = @posts.order("created_at")
-    render json: comments
+    comment = current_user.comments.create!(comment_params)
+    render json: { comment: comment }
+  end
+
+  private
+
+  def comment_params
+    params.permit(:comment, :comment_by, :post_id, :user_id)
   end
 
 end

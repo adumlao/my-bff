@@ -1,5 +1,6 @@
 import React from 'react'
 import {
+  verifyToken,
   getUser,
    } from '../services/user';
 import {
@@ -7,6 +8,10 @@ import {
   getPosts,
    getUserPosts,
  } from '../services/post';
+ import {
+   postComments,
+   getComments
+ } from '../services/comments'
 
 import PostsList from './PostsList'
 
@@ -16,13 +21,41 @@ class UserProfile extends React.Component {
     super(props)
 
     this.state = {
+      comment_by:'',
+     comment: '',
+     comments: [],
       posts: [],
       user: [],
       userPosts: [],
       rando:[]
     }
+    this.handleSubmitComment = this.handleSubmitComment.bind(this);
+    this.handleCommentChange = this.handleCommentChange.bind(this);
     this.deleteThisPost = this.deleteThisPost.bind(this);
   }
+
+    handleCommentChange(e) {
+     const { name, value } = e.target;
+     this.setState(prevState => ({
+         ...prevState.comment,
+         [name]: value
+     }))
+    }
+
+    async handleSubmitComment(id){
+     const name = await localStorage.getItem('name');
+     const data = {
+      comment: this.state.comment,
+      comment_by: name
+     }
+     await postComments(id, data);
+     const posts = await getPosts();
+     const comments = await getComments();
+     this.setState({
+       posts,
+       comments
+     })
+    }
 
   async deleteThisPost(id){
     const userId = await localStorage.getItem('id');
@@ -35,12 +68,14 @@ class UserProfile extends React.Component {
   }
 
   async componentDidMount() {
+    const { user } = await verifyToken();
      const id = await localStorage.getItem('id');
-     const user = await getUser(id);
+     const thisUser = await getUser(id);
      const posts = await getPosts();
      this.setState({
-       user: user.user,
-       posts
+       user: thisUser.user,
+       posts,
+       currentUser: user
      })
     await this.fetchUserPosts();
   }
@@ -75,10 +110,13 @@ class UserProfile extends React.Component {
           </div>
         </div>
         <div className="user-posts">
-        <PostsList
+        <PostsList{...props}
         posts={this.state.userPosts}
         user={this.state.user.id}
         deleteThisPost={this.deleteThisPost}
+        comments={this.state.comments}
+        handleCommentChange={this.handleCommentChange}
+        handleSubmitComment={this.handleSubmitComment}
         />
         </div>
       </div>
