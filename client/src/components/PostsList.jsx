@@ -66,14 +66,16 @@ class PostsList extends React.Component {
         : null
         }
 
-        <form>
+        <form className="comment-block">
         <textarea
+        className="comment-area"
         name="comment"
         id="description"
         value={this.props.comment}
         onChange={this.props.handleCommentChange} />
 
         <button
+        className="comment-buttons"
         onClick={() => this.props.handleSubmitComment(x.id)}>Comment</button>
         </form>
 

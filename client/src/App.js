@@ -3,7 +3,6 @@ import { Route, Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
 import {
-
   updateUser,
   getUser,
   registerUser,

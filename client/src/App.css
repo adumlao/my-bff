@@ -208,7 +208,7 @@ nav{
   font-size: 0.9em;
 }
 
-.rando-name:hover, .reg-button:hover, .blog-button:hover, .edit-buttons:hover, .home-button:hover{
+.comment-buttons:hover, .rando-name:hover, .reg-button:hover, .blog-button:hover, .edit-buttons:hover, .home-button:hover{
   background-color: #4261e6c4
 }
 
@@ -464,6 +464,24 @@ nav{
   font-size: 1em;
 }
 
+.comment-block{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin: 0.5em 0em;
+}
+
+.comment-buttons{
+  width: 8em;
+  font-size: 0.8em;
+  margin: 1em 0em;
+  color: black;
+  padding: 0.2em;
+  border: 1px solid grey;
+  text-decoration: none;
+  background-color: lightgrey;
+}
+
 @media only screen and (max-width: 1030px) {
 .bio{
   width: 13em;
@@ -504,33 +522,6 @@ nav{
 .home-button, .home-input {
   border: 1px solid lightgrey;
 }
-/* .home-page{
-  display: flex;
-  flex-direction: column;
-}
-
-.home-greeting {
-    width: 100vw;
-    height: 50vh;
-  }
-
-  .home-login {
-    background-color: #3d23e6;
-    width: 100vw;
-    height: 50vh;
-}
-
-.home-logo {
-    margin-top: 2em;
-    width: 17em;
-    height: 4em;
-    background-size: 100%;
-  }
-
-  .home-tag {
-    margin: 0em;
-    font-size: 2em;
-} */
 
 }
 
