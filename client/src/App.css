@@ -482,6 +482,10 @@ nav{
   background-color: lightgrey;
 }
 
+.comment-area{
+  border: 1px solid grey;
+}
+
 @media only screen and (max-width: 1030px) {
 .bio{
   width: 13em;
@@ -543,6 +547,39 @@ nav{
     width: 35em;
   }
 
+  .updatemodal-form{
+    width: 20em;
+  }
+
+  .username {
+  width: 14em;
+  font-size: 1.4em;
+}
+
+}
+
+@media only screen and (max-width: 670px) {
+  .home-logo {
+    margin-top: 2em;
+    width: 22em;
+    height: 4em;
+    background-size: 87%;
+    }
+
+    .home-input {
+      border: 1px solid lightgrey;
+      width: 10em;
+      font-size: 1.2em;
+    }
+
+    .body{
+      display: flex;
+      flex-direction: column;
+      margin: 2em 0em;
+      justify-content: center;
+      align-items: center;
+    }
+
 }
 
 @media only screen and (max-width: 570px) {
@@ -573,36 +610,15 @@ nav{
       background-color: white;
   }
 
-  .home-logo {
-      margin-top: 2em;
-      width: 17em;
-      height: 4em;
-      background-size: 100%;
-    }
-
     .home-tag {
       margin: 0em;
       font-size: 2em;
-  }
-
-
-  .body{
-    display: flex;
-    flex-direction: column;
-    margin: 2em 0em;
-    justify-content: center;
-    align-items: center;
   }
 
   .bio{
     width: 13em;
     margin-bottom: 1em;
   }
-
-  .username {
-    width: 9em;
-    font-size: 1em;
-}
 
   .post-image {
     width: 15em;
@@ -666,5 +682,12 @@ nav{
 
 .drop-text {
     height: 5em;
+  }
+}
+
+@media only screen and (max-width: 415px) {
+  .username {
+    width: 9em;
+    font-size: 1em;
   }
 }
