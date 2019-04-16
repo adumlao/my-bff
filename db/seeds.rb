@@ -158,17 +158,17 @@ User.create([
     },
     ])
 
-  Comment.create([
-    {
-    comment: 'This is too cute',
-    comment_by: "Truvy the Bulldog",
-    post_id: "17",
-    user_id: "2"
-    },
-    {
-    comment: 'Shes a huntress',
-    comment_by: "Halcyon Wright-Madril",
-    post_id: "17",
-    user_id: "3"
-    }
-    ])
+    Comment.create([
+   {
+   comment: 'This is too cute',
+   comment_by: "Truvy the Bulldog",
+   post_id: "17",
+   user_id: "2"
+   },
+   {
+   comment: 'Shes a huntress',
+   comment_by: "Halcyon Wright-Madril",
+   post_id: "17",
+   user_id: "3"
+   }
+   ])

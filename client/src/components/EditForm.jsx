@@ -2,6 +2,9 @@ import React from 'react';
 import Dropzone from 'react-dropzone';
 import FilesBase64 from 'react-file-base64';
 import {
+  verifyToken,
+} from '../services/user';
+import {
     getSpecificPost,
     getPosts,
     updatePosts } from '../services/post';
@@ -11,6 +14,7 @@ class EditForm extends React.Component {
        super(props)
 
        this.state = {
+         currentUser: [],
          specificPost: [],
          posts:[],
          body: '',
@@ -27,6 +31,7 @@ class EditForm extends React.Component {
      }
 
      async componentDidMount(){
+       const { user } = await verifyToken();
        const userId = await localStorage.getItem('id');
        const postId = this.props.match.params.id
 
@@ -34,7 +39,8 @@ class EditForm extends React.Component {
        const specificPost = await getSpecificPost(userId, postId);
        this.setState({
          posts,
-         specificPost
+         specificPost,
+         currentUser: user
        })
      }
 

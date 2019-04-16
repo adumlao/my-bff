@@ -11,5 +11,8 @@ Rails.application.routes.draw do
   get "/posts", to: 'posts#all'
   get "/comments", to: 'comments#all'
 
+  resources :posts do
+    resources :comments
+  end
 
 end

@@ -4,9 +4,19 @@ import FilesBase64 from 'react-file-base64';
 import { withRouter } from 'react-router';
 
 import {
+  verifyToken,
+} from '../services/user';
+
+import {
     deletePost,
     getPosts,
     createPost } from '../services/post';
+
+import {
+  postComments,
+  getComments
+} from '../services/comments'
+
 import PostsList from './PostsList'
 
 class PostForm extends React.Component {
@@ -14,6 +24,10 @@ class PostForm extends React.Component {
      super(props)
 
      this.state = {
+       currentUser: [],
+      comment_by:'',
+      comment: '',
+      comments: [],
       posts: [],
       body: '',
       description: '',
@@ -25,9 +39,32 @@ class PostForm extends React.Component {
      this.handlePostFormChange = this.handlePostFormChange.bind(this);
      this.handleSubmitPost = this.handleSubmitPost.bind(this);
      this.deleteThisPost = this.deleteThisPost.bind(this);
+     this.handleSubmitComment = this.handleSubmitComment.bind(this);
+     this.handleCommentChange = this.handleCommentChange.bind(this);
    }
 
+   handleCommentChange(e) {
+    const { name, value } = e.target;
+    this.setState(prevState => ({
+        ...prevState.comment,
+        [name]: value
+    }))
+   }
 
+   async handleSubmitComment(id){
+    const name = await localStorage.getItem('name');
+    const data = {
+     comment: this.state.comment,
+     comment_by: name
+    }
+    await postComments(id, data);
+    const posts = await getPosts();
+    const comments = await getComments();
+    this.setState({
+      posts,
+      comments
+    })
+   }
 
    async deleteThisPost(id){
      const userId = await localStorage.getItem('id');
@@ -39,9 +76,11 @@ class PostForm extends React.Component {
    }
 
    async componentDidMount(){
+     const { user } = await verifyToken();
      const posts = await getPosts();
      this.setState({
-       posts
+       posts,
+       currentUser: user
      })
    }
 
@@ -139,7 +178,11 @@ class PostForm extends React.Component {
     <PostsList{...props}
     posts={this.state.posts}
     user={this.props.currentUser}
-    deleteThisPost={this.deleteThisPost}/>
+    deleteThisPost={this.deleteThisPost}
+    comment={this.state.comment}
+    handleCommentChange={this.handleCommentChange}
+    handleSubmitComment={this.handleSubmitComment}
+    />
     </div>
   )
 }

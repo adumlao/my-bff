@@ -1,5 +1,8 @@
 import React from 'react'
 import {
+  verifyToken,
+} from '../services/user';
+import {
   getAllUsers,
   getUser,
    } from '../services/user';
@@ -12,6 +15,7 @@ class RandomUser extends React.Component {
     super(props)
 
     this.state = {
+      currentUser: [],
       allUsers : [],
       user: [],
     }
@@ -29,15 +33,16 @@ class RandomUser extends React.Component {
   }
 
   async componentDidMount() {
+    const { user } = await verifyToken();
      const allUsers = await getAllUsers();
      this.setState({
-       allUsers: allUsers.users
+       allUsers: allUsers.users,
+       currentUser: user
      })
 this.showRandom();
   }
 
   render(props){
-    console.log(this.state.user);
     return(
       <div className="bio">
         <div className="cutie" style={{ backgroundImage: 'url(/media/cutie.gif)' }}></div>
