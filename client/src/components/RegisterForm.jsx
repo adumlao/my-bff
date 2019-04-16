@@ -33,7 +33,7 @@ export default (props) => {
           type="text"
           onChange={handleChange}
           name="name"
-          placeholder="First Name, Last Name"
+          placeholder="Your Pet's Name"
           value={name} />
         <button className="reg-button" type="submit" onClick={handleSubmit}>Register</button>
       </form>
