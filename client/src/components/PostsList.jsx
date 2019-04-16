@@ -7,6 +7,7 @@ import {
      } from '../services/post';
 
 import {
+  postComments,
   getComments
 } from '../services/comments'
 
@@ -18,9 +19,9 @@ class PostsList extends React.Component {
      this.state = {
       comments: [],
       posts: [],
-
     }
   }
+
 
   async componentDidMount(){
     const posts = await getPosts();
@@ -57,6 +58,17 @@ class PostsList extends React.Component {
         </div>
         : null
         }
+
+        <form>
+        <textarea
+        name="comment"
+        id="description"
+        value={this.props.comment}
+        onChange={this.props.handleCommentChange} />
+
+        <button
+        onClick={() => this.props.handleSubmitComment(x.id)}>Comment</button>
+        </form>
 
         <CommentsList
         comments={this.state.comments}

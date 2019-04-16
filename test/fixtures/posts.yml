@@ -4,8 +4,10 @@ one:
   body: MyString
   description: MyString
   posted_by: MyString
+  user: one
 
 two:
   body: MyString
   description: MyString
   posted_by: MyString
+  user: two
