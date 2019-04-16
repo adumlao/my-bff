@@ -11,7 +11,6 @@ import {
      } from '../services/post';
 
 import {
-  postComments,
   getComments
 } from '../services/comments'
 
@@ -22,7 +21,7 @@ class PostsList extends React.Component {
 
      this.state = {
 
-       currentUser: [],
+      currentUser: [],
       comments: [],
       posts: [],
     }
