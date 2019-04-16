@@ -10,6 +10,7 @@ class BioForm extends React.Component {
        this.state = {
          user: [],
          bioForm: {
+           name: '',
            location: '',
            bio: '',
          }
@@ -38,12 +39,21 @@ class BioForm extends React.Component {
 
      render(){
      const {
+      name,
       location,
       bio
     } = this.state.bioForm;
 
   return (
     <form className="bio-form"onSubmit={this.submitBio}>
+      <input
+      className="edit-location"
+      placeholder="Your Pet's Name"
+      type="text"
+      name="name"
+      value={name}
+      id="name"
+      onChange={this.handleBioFormChange} />
       <input
       className="edit-location"
       placeholder="Location"

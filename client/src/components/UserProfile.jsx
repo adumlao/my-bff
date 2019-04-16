@@ -22,8 +22,8 @@ class UserProfile extends React.Component {
 
     this.state = {
       comment_by:'',
-     comment: '',
-     comments: [],
+      comment: '',
+      comments: [],
       posts: [],
       user: [],
       userPosts: [],
